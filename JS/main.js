@@ -1,5 +1,3 @@
-
-
 var navItem = Array.from(document.querySelectorAll('.nav-item'));
 var navLink = Array.from(document.querySelectorAll('.nav-link'));
 
@@ -7,7 +5,6 @@ navItem.forEach(function(element, index){
     element.classList.remove('active');
     navLink[index].addEventListener('click', function(){
         removeAllClassActive();
-
         element.classList.add('active');
     })
 })
@@ -23,57 +20,22 @@ window.addEventListener('scroll', function(){
 })
 
 // Edit content
-var edit = Array.from(document.getElementsByClassName('edit'));
-var save = Array.from(document.getElementsByClassName('save'));
 
-edit.forEach(function(element, index){
-    element.addEventListener('click', function(){
-        var item = Array.from(document.querySelectorAll('#group' + (index + 1) + ' .list-group-item'));
-        var icon = $('#group' + (index + 1) + ' .icon')
-        // var wraps = document.querySelectorAll('#group' + (index + 1) + ' .wrap-item');
-        // wraps.forEach(el => {
-        //     el.innerHTML += "<button class='btn btn-danger remove'><i class=\"fa fa-trash\"></i></button>";
-        // })
-        
-        item.forEach((el, ind) => {
-            //console.log(el)
-            el.innerHTML += "<button class='btn btn-danger remove'><i class=\"fa fa-trash\"></i></button>";
-            const remove = $('#group' + (index + 1) + ' .remove');
-            el.setAttribute('contentEditable', 'true');
-            $(remove[ind]).click(function(){
-                $(item[ind]).remove();
-                if(index === 0){
-                    $(icon[ind]).remove();
-                }
-            })
-            
-            $(el).click(function() {
-                $(remove[ind]).remove();
-                
-                CKEDITOR.disableAutoInline = true;
-                CKEDITOR.dtd.$removeEmpty['i'] = false;
-                CKEDITOR.inline(item[ind], {
-                    format_tags : 'p;h1;h2;h3;h4;h5;h6;pre;address;div',
-                    removeButtons: 'Cut,Copy,Paste,Undo,Redo,Anchor',
-                    extraPlugins: 'colorbutton,justify,liststyle,exportpdf,sourcedialog',
-                    removePlugins: 'scayt,sourcearea,removeformat,magicline',
-                    allowedContent: true
-                });
-                
-            })
-        })
-        save[index].classList.add('show');
-        element.style.display = 'none';
-        save[index].addEventListener('click', function(){
-            $('#group' + (index + 1) + ' .list-group-item').attr('contentEditable', 'false');
-            $('#group' + (index + 1) + ' .remove').remove();
-            
-            element.style.display = 'inline-block';
-            save[index].classList.remove('show');
-        })
-        
+
+var item = Array.from(document.querySelectorAll('.list-group-item'));
+$('.fa-trash').click(function(){
+    $(this).siblings().remove();
+});
+item.forEach((el, ind) => {
+    el.setAttribute('contentEditable', 'true');
+    var ck = CKEDITOR.inline(item[ind], {
+        allowedContent: true
     })
+        
+
 })
+
+
 
 // Scroll active menu
 const sections = document.querySelectorAll('section');
@@ -148,14 +110,12 @@ addClassActive = function(current){
 
 
 
-$('.list-group:not(#group5, #group6)').sortable({
-    animation: 150
+$('.list-group').sortable({
+    animation: 150,
+    handle: '.fa-arrows'
 });
 
-$('#group5, #group6').sortable({
-    group: 'list',
-    animation: 150
-})
+
 
 /* Set Image */
 const img = document.querySelector('#avatar');

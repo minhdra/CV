@@ -94,6 +94,10 @@ nav.sticky {
   color: var(--danger);
 }
 
+.font-weight-bold{
+  opacity: .7;
+}
+
 .position {
   font-size: 18px;
   color: var(--gray);
@@ -158,6 +162,11 @@ nav.sticky {
   margin: 10px 0;
 }
 
+.wrap-chosen h5{
+  color: #222;
+  font-size: 20px;
+}
+
 .edit {
   opacity: 0;
 }
@@ -200,15 +209,46 @@ nav.sticky {
   display: flex;
 }
 
+.hover{
+  position: relative;
+}
+
+.fa-arrows,
+.fa-trash{
+  position: absolute;
+  height: 100%;
+  width: 34px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: .4s;
+  color: var(--danger);
+  cursor: pointer;
+}
+
+.fa-arrows{
+  left: -34px;
+}
+
+.fa-trash{
+  right: -34px;
+}
+
+.hover:hover .fa-arrows,
+.hover:hover .fa-trash{
+  opacity: 1;
+}
+
 .fa-envelope,
 .fa-fax,
 .fa-phone-square,
 .fa-address-card{
   width: 32px;
-  height: 24px;
+  height: auto;
   text-align: center;
-  line-height: 24px;
-  padding: .75rem 0;
+  display: flex !important;
+  align-items: center;
   margin-right: 10px;
 }
 
@@ -247,11 +287,13 @@ nav.sticky {
 }
 
 .academic h4,
-.academic-year h4{
+.academic-year h4,
+.title h4{
   font-size: 1.25rem;
 }
 
-.academic-year h5{
+.academic-year h5,
+.title h5{
   font-size: 1.1rem;
 }
 
