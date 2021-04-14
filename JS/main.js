@@ -26,15 +26,32 @@ var item = Array.from(document.querySelectorAll('.list-group-item'));
 $('.fa-trash').click(function(){
     $(this).siblings().remove();
 });
+
+
 item.forEach((el, ind) => {
     el.setAttribute('contentEditable', 'true');
     var ck = CKEDITOR.inline(item[ind], {
         allowedContent: true
     })
-        
-
 })
 
+$('.fa-plus').click(function(){
+    var text = $(this).parent().html();
+    $(this).parent().after(
+        `<div class="hover address">
+            ${text}
+        </div>`);
+    var item = Array.from(document.querySelectorAll('.list-group-item'));
+    item.forEach((el, ind) => {
+        el.setAttribute('contentEditable', 'true');
+        var ck = CKEDITOR.inline(item[ind], {
+            allowedContent: true
+        })
+    })
+    $('.fa-trash').click(function(){
+        $(this).siblings().remove();
+    });
+})
 
 
 // Scroll active menu

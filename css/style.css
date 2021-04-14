@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+  background-image: linear-gradient(90deg, #a6c0fe 0%, #f68084 100%);
   font-family: "Roboto", sans-serif !important;
 }
 
@@ -76,6 +76,9 @@ nav.sticky {
   position: absolute;
   opacity: 0;
   transition: 0.6s;
+  bottom: calc(50%);
+  left: calc(50% - 30px);
+  margin: 0;
 }
 
 .avatar:hover img {
@@ -92,10 +95,11 @@ nav.sticky {
 
 .name {
   color: var(--danger);
+  padding-top: 0 !important;
 }
 
-.font-weight-bold{
-  opacity: .7;
+.font-weight-bold {
+  opacity: 0.7;
 }
 
 .position {
@@ -103,14 +107,14 @@ nav.sticky {
   color: var(--gray);
 }
 
-.study {
+.education {
   font-size: 18px;
   color: var(--dark);
 }
-.study div {
+/* .education div {
   padding: 5px 0;
-}
-.study div:hover {
+} */
+.education div:hover {
   cursor: pointer;
   color: var(--danger);
   text-decoration: underline;
@@ -162,7 +166,7 @@ nav.sticky {
   margin: 10px 0;
 }
 
-.wrap-chosen h5{
+.wrap-chosen h5 {
   color: #222;
   font-size: 20px;
 }
@@ -204,46 +208,60 @@ nav.sticky {
   background-color: transparent !important;
 }
 
-.address{
+.address {
   border: none !important;
   display: flex;
 }
 
-.hover{
+.hover {
   position: relative;
 }
 
 .fa-arrows,
-.fa-trash{
+.fa-trash,
+.fa-plus {
   position: absolute;
-  height: 100%;
   width: 34px;
   display: flex !important;
-  align-items: center;
-  justify-content: center;
   opacity: 0;
-  transition: .4s;
+  transition: 0.4s;
   color: var(--danger);
   cursor: pointer;
 }
 
-.fa-arrows{
+.fa-arrows {
+  height: 100%;
   left: -34px;
+  align-items: center;
+  justify-content: center;
 }
 
-.fa-trash{
+.fa-trash {
+  height: 50%;
+  right: -34px;
+  bottom: 0;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.fa-plus{
+  height: 50%;
+  top: 0;
+  align-items: flex-start;
+  justify-content: center;
   right: -34px;
 }
 
 .hover:hover .fa-arrows,
-.hover:hover .fa-trash{
+.hover:hover .fa-trash,
+.hover:hover .fa-plus {
   opacity: 1;
 }
 
 .fa-envelope,
 .fa-fax,
 .fa-phone-square,
-.fa-address-card{
+.fa-address-card {
   width: 32px;
   height: auto;
   text-align: center;
@@ -252,35 +270,34 @@ nav.sticky {
   margin-right: 10px;
 }
 
-.address .list-group-item{
+.address .list-group-item {
   width: 100%;
 }
 
-.address a{
+.address a {
   color: #222;
 }
 
-.address a:hover{
+.address a:hover {
   color: var(--danger);
 }
 
-/* .academic{
+.academic{
   border: none !important;
   padding: 0 !important;
-} */
-.academic:nth-child(1)
-{
+}
+.academic:nth-child(1) {
   border-right: 0;
 }
-.academic:nth-child(2){
+.academic:nth-child(2) {
   text-align: end;
   color: var(--danger);
   border-top-width: 1px !important;
-  border-top: 1px solid rgba(0,0,0,.125);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
   border-left: 0;
 }
 
-.list-group-item{
+.list-group-item {
   border: none !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -288,16 +305,16 @@ nav.sticky {
 
 .academic h4,
 .academic-year h4,
-.title h4{
+.title h4 {
   font-size: 1.25rem;
 }
 
 .academic-year h5,
-.title h5{
+.title h5 {
   font-size: 1.1rem;
 }
 
-.academic .time{
+.academic .time {
   padding-right: 5px;
 }
 
@@ -341,10 +358,10 @@ nav.sticky {
     max-width: 1140px;
   }
 
-  .label-file {
+  /* .label-file {
     left: 29%;
     top: 40%;
-  }
+  } */
 }
 
 @media (min-width: 992px) and (max-width: 1199.99px) {
@@ -352,10 +369,10 @@ nav.sticky {
     max-width: 960px;
   }
 
-  .label-file {
+  /* .label-file {
     left: 23%;
     top: 31%;
-  }
+  } */
 }
 
 @media (min-width: 768px) and (max-width: 991.99px) {
@@ -363,10 +380,10 @@ nav.sticky {
     max-width: 720px;
   }
 
-  .label-file {
+  /* .label-file {
     left: 23%;
     top: 31%;
-  }
+  } */
 }
 
 @media (max-width: 767px) {
@@ -379,12 +396,12 @@ nav.sticky {
     display: none;
   }
 
-  .label-file {
+  /* .label-file {
     left: 34%;
     top: 47%;
-  }
+  } */
 
-  .about{
+  .about {
     padding-left: 15px !important;
     margin-top: 25px;
   }
@@ -431,16 +448,16 @@ nav.sticky {
   background-color: #9e062c !important;
 }
 
-p{
+p {
   margin: 0 !important;
 }
 
-.list-group-item{
+.list-group-item {
   position: relative;
 }
 
-.remove{
-  display: none !important;  
+.remove {
+  display: none !important;
   position: absolute;
   top: 0;
   right: -40px;
@@ -449,6 +466,14 @@ p{
   text-align: center;
 }
 
-.list-group-item:hover .remove{
+.list-group-item:hover .remove {
   display: block !important;
+}
+
+.submit{
+  padding: 0 24px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
