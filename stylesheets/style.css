@@ -56,7 +56,6 @@ nav.sticky {
 }
 
 .wrap-about {
-  padding: 20px 9px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -64,6 +63,7 @@ nav.sticky {
 .avatar {
   max-height: 300px;
   position: relative;
+  padding: 0 !important;
 }
 .avatar img {
   width: 100%;
@@ -161,9 +161,9 @@ nav.sticky {
 
 .wrap-chosen {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 10px 0;
+  color: var(--danger);
 }
 
 .wrap-chosen h5 {
@@ -217,45 +217,74 @@ nav.sticky {
   position: relative;
 }
 
-.fa-arrows,
-.fa-trash,
-.fa-plus {
+.fa-custom-trash,
+.fa-arrows{
   position: absolute;
-  width: 34px;
+  width: 40px;
   display: flex !important;
   opacity: 0;
   transition: 0.4s;
   color: var(--danger);
   cursor: pointer;
-}
-
-.fa-arrows {
   height: 100%;
-  left: -34px;
   align-items: center;
   justify-content: center;
 }
 
-.fa-trash {
-  height: 50%;
-  right: -34px;
-  bottom: 0;
-  align-items: flex-end;
-  justify-content: center;
+.fa-arrows {
+  left: -40px;
+  
 }
 
-.fa-plus{
+.pub-chosen-right{
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  right: -40px;
+  color: var(--danger);
+  width: 40px;
+  opacity: 0;
+}
+
+.pub-chosen-right .fa-trash,
+.pub-chosen-right .pdf{
+  width: 100%;
+  text-align: center;
   height: 50%;
-  top: 0;
-  align-items: flex-start;
-  justify-content: center;
-  right: -34px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.pub-chosen-right .pdf:hover{
+  text-decoration: underline;
+}
+
+input[name*="pdf"]{
+  display: none;
+}
+
+.fa-custom-trash {
+  right: -40px;
+}
+
+.fa-plus {
+  cursor: pointer;
+  opacity: 0;
+  padding: 0 10px;
+  margin: 0 10px;
 }
 
 .hover:hover .fa-arrows,
 .hover:hover .fa-trash,
-.hover:hover .fa-plus {
+.hover:hover .pub-chosen-right {
   opacity: 1;
+}
+
+.fa-arrows:hover,
+.pdf:hover,
+.fa-trash:hover{
+  opacity: 0.8 !important;
 }
 
 .fa-envelope,
@@ -282,7 +311,7 @@ nav.sticky {
   color: var(--danger);
 }
 
-.academic{
+.academic {
   border: none !important;
   padding: 0 !important;
 }
@@ -470,7 +499,7 @@ p {
   display: block !important;
 }
 
-.submit{
+.submit {
   padding: 0 24px;
   padding-bottom: 15px;
   display: flex;
