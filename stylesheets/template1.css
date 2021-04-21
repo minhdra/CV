@@ -52,7 +52,10 @@ nav.sticky {
   padding: 0 20px !important;
   border-radius: 15px;
   margin: 50px auto;
-  box-shadow: 0 0 50px 0 rgb(0 0 0 / 10%);
+  /* box-shadow: 0 0 50px 0 rgb(0 0 0 / 10%); */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
 .wrap-about {
@@ -205,7 +208,7 @@ nav.sticky {
 }
 
 .btn-trash,
-.btn-arrow{
+.btn-arrow {
   position: absolute;
   width: 40px;
   display: flex !important;
@@ -220,10 +223,9 @@ nav.sticky {
 
 .btn-arrow {
   left: -40px;
-  
 }
 
-.pub-chosen-right{
+.pub-chosen-right {
   position: absolute;
   height: 100%;
   display: flex;
@@ -235,7 +237,7 @@ nav.sticky {
 }
 
 .pub-chosen-right .fa-trash-alt,
-.pub-chosen-right .pdf{
+.pub-chosen-right .pdf {
   width: 100%;
   text-align: center;
   height: 50%;
@@ -243,11 +245,11 @@ nav.sticky {
   margin: 0;
 }
 
-.pub-chosen-right .pdf:hover{
+.pub-chosen-right .pdf:hover {
   text-decoration: underline;
 }
 
-input[name*="pdf"]{
+input[name*="pdf"] {
   display: none;
 }
 
@@ -270,7 +272,7 @@ input[name*="pdf"]{
 
 .btn-arrow:hover,
 .pdf:hover,
-.fa-trash-alt:hover{
+.fa-trash-alt:hover {
   opacity: 0.8 !important;
 }
 
@@ -313,7 +315,7 @@ input[name*="pdf"]{
   border-left: 0;
 }
 
-.academic-item .list-group-item{
+.academic-item .list-group-item {
   padding: 0.25rem 1.25rem;
 }
 
