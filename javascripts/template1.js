@@ -48,12 +48,12 @@ window.addEventListener("scroll", () => {
 const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`;
 
 $('.btn-cogs').click(function(){
-    if($(this).hasClass('show')){
-        $(this).removeClass('show');
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
         $(this).parent().css('transform', 'translateX(100%)');
     }
     else{
-        $(this).addClass('show');
+        $(this).addClass('active');
         $(this).parent().css('transform', 'translateX(0)');
     }
 })
@@ -61,7 +61,16 @@ $('.btn-cogs').click(function(){
 $('.list-color li').click(function(){
     $('.list-color li').removeClass('active');
     $(this).addClass('active');
-    console.log(rgb2hex($(this).css('background-color')))
+    var newColor = rgb2hex($(this).css('background-color'));
+    document.documentElement.style.setProperty('--primary-color', newColor);
+})
+
+$('.list-background li').click(function(){
+    $('.list-background li').removeClass('active');
+    $(this).addClass('active');
+    var newBackground = $(this).css('background-image');
+    console.log(newBackground)
+    document.documentElement.style.setProperty('--primary-background', newBackground);
 })
 
 // Edit content
